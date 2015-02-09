@@ -3,9 +3,8 @@ Meteor.publish('family', function (userId) {
 });
 
 Meteor.publish('peoplesInFamily', function (familyId) {
-  return People.find({ familyId: familyId }, {
+  return People.find({ familyId: familyId }, { 
     transform : function (doc) {
-      return doc;
     }
   });
-})
+});
