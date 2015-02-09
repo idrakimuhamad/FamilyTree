@@ -1,0 +1,22 @@
+<template name="login_page">
+  <div class="sm-col-8 md-col-4 lg-col-2 mx-auto py4 center">
+    {{#if isLogin}}
+    <h2>Login</h2>
+    <form id="login" class="mb2 py2 border-bottom">
+      <input type="text" class="username block full-width field-light" placeholder="Username">
+      <input type="password" class="password mb2 block full-width field-light" placeholder="Password">
+      <button type="submit" class="button-blue">Sign In</button>
+    </form>
+    <p>No account? <a href="#signup" class="signup">Sign Up</a></p>
+    {{else}}
+    <h2>Sign Up</h2>
+    <form id="signup" class="mb2 py2 border-bottom">
+      <input type="email" class="email block full-width field-light" placeholder="Email">
+      <input type="text" class="username block full-width field-light" placeholder="Username">
+      <input type="password" class="password mb2 block full-width field-light" placeholder="Password">
+      <button type="submit" class="button-blue">Sign Up</button>
+    </form>
+    <p>Already got an account? <a href="#login" class="login">Login here</a></p>
+    {{/if}}
+  </div>
+</template>
