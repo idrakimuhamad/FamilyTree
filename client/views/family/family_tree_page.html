@@ -6,7 +6,8 @@
       {{#if noPerson}}
       {{> create_root}}
       {{/if}}
-      <div class="tree"></div>
+      <div class="tree">
+      </div>
       {{> menu}}
     </div>
   </div>
@@ -23,7 +24,15 @@
 </template>
 
 <template name="menu">
-  {{#with person}}
+  <div class="menu hidden fixed px1 py1">
+    <form id="child">
+      <input type="text" class="child field-light block full-width" placeholder="Child's Name">
+      <label for="dob">Date of Birth</label>
+      <input type="date" name="dob" class="dob block full-width field-light" id="dob">
+      <button class="button-blue add-child" type="submit">Add Child</button>
+    </form>
+  </div>
+  <!-- {{#with person}}
   <div class="menu fixed px1 py1">
     <h3 class="name">{{name}}</h3>
     <h4>Spouse</h4>
@@ -37,5 +46,5 @@
 
     <a href="#add" class="button button-blue add-child">Add Child</a>
   </div>
-  {{/with}}
+  {{/with}} -->
 </template>
