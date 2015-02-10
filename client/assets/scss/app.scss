@@ -21,6 +21,13 @@ html, body {
   height: calc(100% - 112px);
   overflow: hidden;
 }
+.menu {
+  right: 1rem;
+  top: 4rem;
+  &.hidden {
+    display: none;
+  }
+}
 .node {
   cursor: pointer;
 }
