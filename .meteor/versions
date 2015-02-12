@@ -10,7 +10,7 @@ blaze-tools@1.0.3-winr.2
 boilerplate-generator@1.0.3-winr.2
 callback-hook@1.0.3-winr.2
 check@1.0.4-win.0
-d3js:d3@3.5.4
+d3js:d3@3.5.5
 ddp@1.0.14-winr.5
 deps@1.0.7-winr.2
 ejson@1.0.6-winr.2

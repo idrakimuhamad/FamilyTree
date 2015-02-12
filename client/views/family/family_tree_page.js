@@ -1,5 +1,13 @@
 var selectedPerson;
 
+Template.family_tree_page.rendered = function () {
+  Tracker.autorun(function () {
+    if (People.find()) {
+      createLinkFamilyTree('.tree', People.find().fetch()[0]);
+    }
+  });
+};
+
 Template.family_tree_page.helpers({
   family: function () {
     return Family.findOne({ _id: Session.get('currentTree') });
@@ -29,8 +37,7 @@ Template.create_root.events({
       name: t.find('.root').value,
       dob: t.find('.dob').value,
       familyId: Session.get('currentTree'),
-      isRoot: true,
-      children: []
+      isRoot: true
     };
 
     Meteor.call('createPeople', people, function (err, res) {
@@ -48,13 +55,16 @@ Template.menu.events({
       name: t.find('.child').value,
       dob: t.find('.dob').value,
       familyId: Session.get('currentTree'),
-      isRoot: false,
-      children: []
+      isRoot: false
     };
 
     Meteor.call('addChild', people, selectedPerson, function (err, res) {
       if (err) alert('Oppps... There seems to be a problem. ' + err.reason);
       Tracker.flush();
+      $('.menu').removeClass('hidden');
+      t.find('.child').value = '';
+      t.find('.dob').value = '';
+      selectedPerson = '';
     });
   }
 });

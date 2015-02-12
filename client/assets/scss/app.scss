@@ -19,7 +19,8 @@ html, body {
 .app-body {
   position: relative;
   height: calc(100% - 112px);
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .menu {
   right: 1rem;

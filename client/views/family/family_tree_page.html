@@ -1,7 +1,7 @@
 <template name="family_tree_page">
   {{#with family}}
   <div class="container">
-    <div class="family-tree-page clearfix py4">
+    <div class="family-tree-page clearfix mb2">
       <h3 class="center">{{name}}</h3>
       {{#if noPerson}}
       {{> create_root}}
@@ -32,19 +32,4 @@
       <button class="button-blue add-child" type="submit">Add Child</button>
     </form>
   </div>
-  <!-- {{#with person}}
-  <div class="menu fixed px1 py1">
-    <h3 class="name">{{name}}</h3>
-    <h4>Spouse</h4>
-    {{#if spouse}}
-      {{#each spouse}}
-      <span class="spouse">{{spouse}}</span>
-      {{/each}}
-    {{else}}
-    No spouse.
-    {{/if}}
-
-    <a href="#add" class="button button-blue add-child">Add Child</a>
-  </div>
-  {{/with}} -->
 </template>
