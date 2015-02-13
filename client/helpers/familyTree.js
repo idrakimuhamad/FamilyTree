@@ -16,7 +16,7 @@ createLinkFamilyTree = function (selector, data) {
       .projection(function(d) { return [d.y, d.x]; });
 
   // clean the element from any SVG before appending
-  clearFamilyTree(selector);
+//  clearFamilyTree(selector);
 
   var svg = d3.select(selector).append("svg")
       .attr("width", width + margin.right + margin.left)
