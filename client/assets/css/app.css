@@ -3,11 +3,14 @@ html, body {
   min-height: 100%;
   height: 100%; }
 
+body {
+  font-family: lato, "Helvetica Neue", "Lucida Sans" , arial, sans-serif; }
+
 #wrapper {
   height: 100%; }
 
 /* App Layout */
-.app-header, .app-footer {
+.app-header {
   position: relative;
   z-index: 7; }
 
@@ -17,16 +20,19 @@ html, body {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); }
 
 .app-body {
-  position: relative;
-  height: calc(100% - 112px);
-  overflow-y: scroll;
-  overflow-x: hidden; }
+  position: relative; }
 
 .menu {
   right: 1rem;
-  top: 4rem; }
+  top: 5rem;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all .3s;
+          transition: all .3s; }
   .menu.hidden {
     display: none; }
+  .menu.focus {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
 
 .node {
   cursor: pointer; }
@@ -37,8 +43,9 @@ html, body {
   stroke-width: 1.5px; }
 
 .node text {
-  font-family: consolas;
-  font-size: 10px; }
+  font-family: lato, "Helvetica Neue", "Lucida Sans" , arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300; }
 
 .link {
   fill: none;
