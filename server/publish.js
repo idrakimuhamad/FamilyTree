@@ -27,13 +27,16 @@ Meteor.publish('peoplesInFamily', function (familyId) {
     added: function (id, field) {
       descendants = new Mongo.Collection(null);
       prepareFamilyTreeData(familyId, descendants);
-      if (!initializing)
-        self.changed('people', descendants.find().fetch()[0]._id, descendants.find().fetch()[0]);
+      if (!initializing) {
+        self.changed('people',
+                     descendants.find().fetch()[0]._id,
+                     descendants.find().fetch()[0]);
+      }
     },
     removed: function (id) {
       descendants = new Mongo.Collection(null);
       prepareFamilyTreeData(familyId, descendants);
-      self.cahnged('people', descendants.find().fetch()[0]._id, descendants.find().fetch()[0]);
+      self.changed('people', descendants.find().fetch()[0]._id, descendants.find().fetch()[0]);
     }
   });
   

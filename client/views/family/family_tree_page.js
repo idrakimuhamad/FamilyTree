@@ -1,4 +1,3 @@
-var selectedPerson;
 
 Template.family_tree_page.rendered = function () {
   Tracker.autorun(function () {
@@ -24,8 +23,9 @@ Template.family_tree_page.events({
   'click .person': function (e, t) {
     e.preventDefault();
     var id = $(e.currentTarget).data('id');
-    selectedPerson = id;
-    $('.menu').toggleClass('hidden');
+    Session.set('selectedPerson', id);
+    Session.set('selectedName', $(e.currentTarget).text());
+    $('.menu').removeClass('hidden');
   }
 });
 
@@ -47,7 +47,19 @@ Template.create_root.events({
   }
 });
 
+Template.menu.helpers({
+  name: function () {
+    return Session.get('selectedName');
+  }
+});
+
 Template.menu.events({
+  'focus form input': function (e, t) {
+    $('.menu').addClass('focus');
+  },
+  'blur form input': function (e, t) {
+    $('.menu').removeClass('focus');
+  },
   'submit #child': function (e, t) {
     e.preventDefault();
 
@@ -61,10 +73,11 @@ Template.menu.events({
     Meteor.call('addChild', people, selectedPerson, function (err, res) {
       if (err) alert('Oppps... There seems to be a problem. ' + err.reason);
       Tracker.flush();
-      $('.menu').removeClass('hidden');
+      $('.menu').addClass('hidden');
       t.find('.child').value = '';
       t.find('.dob').value = '';
-      selectedPerson = '';
+      Session.set('selectedPerson', null);
+      Session.set('selectedName', null);
     });
   }
 });

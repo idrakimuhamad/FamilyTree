@@ -1,15 +1,13 @@
 <template name="family_tree_page">
   {{#with family}}
-  <div class="container">
-    <div class="family-tree-page clearfix mb2">
-      <h3 class="center">{{name}}</h3>
-      {{#if noPerson}}
-      {{> create_root}}
-      {{/if}}
-      <div class="tree">
-      </div>
-      {{> menu}}
+  <div class="family-tree-page clearfix mb2">
+    <h3 class="center">{{name}}</h3>
+    {{#if noPerson}}
+    {{> create_root}}
+    {{/if}}
+    <div class="tree">
     </div>
+    {{> menu}}
   </div>
   {{/with}}
 </template>
@@ -24,7 +22,14 @@
 </template>
 
 <template name="menu">
-  <div class="menu hidden fixed px1 py1">
+  <div class="menu hidden fixed px2 py2">
+   <h3 class="mt0">{{name}}</h3>
+     <form id="spouse" class="mb2">
+      <input type="text" class="spouse field-light block full-width" placeholder="Spouse's name">
+      <label for="dob">Date of Birth</label>
+      <input type="date" name="dob" class="dob block full-width field-light" id="dob">
+      <button class="button-blue add-spouse" type="submit">Add Spouse</button>
+    </form>
     <form id="child">
       <input type="text" class="child field-light block full-width" placeholder="Child's Name">
       <label for="dob">Date of Birth</label>
