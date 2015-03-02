@@ -2,7 +2,11 @@
 Template.family_tree_page.rendered = function () {
   Tracker.autorun(function () {
     if (People.find()) {
-      createLinkFamilyTree('.tree', People.find().fetch()[0]);
+      if (Session.equals('treeModel', 'horizontal')) {
+        createLinkFamilyTree('.tree', People.find().fetch()[0]);
+      } else if (Session.equals('treeModel', 'vertical')) {
+        createVerticalFamilyTree('.tree', People.find().fetch()[0]);
+      }
     }
   });
 };
@@ -65,19 +69,26 @@ Template.menu.events({
 
     var people = {
       name: t.find('.child').value,
-      dob: t.find('.dob').value,
+      dob: t.find('#child .dob').value,
       familyId: Session.get('currentTree'),
       isRoot: false
     };
 
-    Meteor.call('addChild', people, selectedPerson, function (err, res) {
+    Meteor.call('addChild', people, Session.get('selectedPerson'), function (err, res) {
       if (err) alert('Oppps... There seems to be a problem. ' + err.reason);
       Tracker.flush();
       $('.menu').addClass('hidden');
+      $('.menu').removeClass('focus');
       t.find('.child').value = '';
       t.find('.dob').value = '';
       Session.set('selectedPerson', null);
       Session.set('selectedName', null);
     });
+  },
+  'click .close': function (e) {
+    $('.menu').addClass('hidden');
+    $('.menu').removeClass('focus');
+    Session.set('selectedPerson', null);
+    Session.set('selectedName', null);
   }
 });

@@ -8,7 +8,7 @@
 
 <template name="app_layout">
   <div id="wrapper">
-    <header class="app-header">HEADER</header>
+    {{> yield "header"}}
     <div class="app-body clearfix">
       {{> yield}}
     </div>

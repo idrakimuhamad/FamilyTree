@@ -14,6 +14,9 @@ body {
 .app-header {
   position: relative;
   z-index: 7;
+  .logo {
+    font-size: 1rem;
+  }
 }
 .app-header {
   padding: 1rem 2rem;
@@ -29,17 +32,23 @@ body {
   background: white;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all .3s;
+  .close {
+    right: 1em;
+  }
   &.hidden {
     display: none;
   }
   &.focus {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   }
+  h3 {
+    padding-right: 1em;
+  }
 }
 .node {
   cursor: pointer;
 }
-.node circle {
+.node circle, .circle {
   fill: #fff;
   stroke: steelblue;
   stroke-width: 1.5px;
@@ -53,4 +62,10 @@ body {
   fill: none;
   stroke: #ccc;
   stroke-width: 1.5px;
+}
+.horizontal-tree {
+
+}
+.vertical-tree {
+
 }

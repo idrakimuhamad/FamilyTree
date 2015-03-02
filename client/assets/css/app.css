@@ -13,6 +13,8 @@ body {
 .app-header {
   position: relative;
   z-index: 7; }
+  .app-header .logo {
+    font-size: 1rem; }
 
 .app-header {
   padding: 1rem 2rem;
@@ -29,15 +31,19 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -webkit-transition: all .3s;
           transition: all .3s; }
+  .menu .close {
+    right: 1em; }
   .menu.hidden {
     display: none; }
   .menu.focus {
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+  .menu h3 {
+    padding-right: 1em; }
 
 .node {
   cursor: pointer; }
 
-.node circle {
+.node circle, .circle {
   fill: #fff;
   stroke: steelblue;
   stroke-width: 1.5px; }
